@@ -1,10 +1,12 @@
 node {
     stage('EXIT_CODE_1') {
 		
-		int code = sh (script='java -jar ExitCode 1 ', returnStatus=true)
+		// int code = sh (script='java -jar ExitCode 1 ', returnStatus=true)
 		
-		if (code != 0) {
+		sh (script='java -jar ExitCode 1 ', returnStatus=true)
+		
+		/*if (code != 0) {
 			error "Pipeline aborted due to MAGiX quality gate failure. Code: ${code}"
-		}
+		}*/
     }
 }
