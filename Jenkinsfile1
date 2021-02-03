@@ -1,0 +1,13 @@
+node {
+    stage('EXIT_CODE_O') {
+		int code
+		
+		def executeJava = {
+			 code = "java -jar ExitCode 1".execute().exitValue()
+			 
+			 if (code != 0) {
+				error "Pipeline aborted due to MAGiX quality gate failure. Code: ${code}"
+			 }
+		}
+    }
+}
